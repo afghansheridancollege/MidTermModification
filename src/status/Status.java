@@ -16,6 +16,8 @@ import java.util.Scanner;
  * then print the status details. 
  * @author srinivsi 
  */
+
+/** NewChanges new created as Enum **/
 public class Status {
 
     /**
@@ -25,9 +27,14 @@ public class Status {
     {
     Scanner in =new Scanner(System.in);
     System.out.println("Enter the user status code (zero,one,two,three) in string");
-    String code = in.next();
-    StausUser t= new StausUser();
-    t.statusDetail(code); 
+    String input = in.next().toUpperCase();
+    try {
+            NewChanges code = NewChanges.valueOf(input);
+            StausUser t = new StausUser();
+            t.statusDetail(code);
+        } catch (IllegalArgumentException e) {
+            System.out.println("NOT VALID");
+        }
     }
     
 }
